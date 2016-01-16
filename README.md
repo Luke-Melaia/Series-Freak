@@ -15,7 +15,7 @@ Download the installer from the releases page and follow the instructions.
 V1.0 - First release.
 
 ## Credits
-Luke Melaia - Author
+Luke Melaia - Author.
 
 ## License
-GNU General Public License
+GNU General Public License.
