@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- Series Freak entries list in html -->
+<html>
+    <head>
+        <!-- Title programmatically set through Series Freak application -->
+        <title>{@title}</title>
+    </head>
+    <body>
+        <table border="0" align="center" cellspacing="15">
+
+            <tr>
+                <!-- Columns programmatically set through Series Freak application -->
+                <th>{@col1}</th>
+                <th>{@col2}</th>
+                <th>{@col3}</th>
+                <th>{@col4}</th>
+                <th>{@col5}</th>
+            </tr>
+
+            <!-- Table rows programmatically set through Series Freak application -->
+{@entries}
+
+        </table>
+    </body>
+</html>

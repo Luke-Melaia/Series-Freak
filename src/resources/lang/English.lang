@@ -1,0 +1,395 @@
+##########################
+###      MENUS         ###
+##########################
+menu.file.text=File
+menu.options.text=Settings
+menu.help.text=Help
+menu.category_remove.text=Remove From Category
+menu.category_add.text=Add To Category
+menu.categories.text=Categories
+
+##########################
+###     MENU ITEMS     ###
+##########################
+menuitem.new.text=New
+menuitem.open.text=Open
+
+menuitem.save.text=Save
+menuitem.save_as.text=Save As
+
+menuitem.exit.text=Exit
+
+menuitem.appearance.text=Appearance
+menuitem.options.text=Options
+
+menuitem.help.text=Help Content
+menuitem.libs.text=Libraries
+menuitem.about.text=About
+
+menuitem.add.text=Add
+menuitem.edit.text=Edit
+menuitem.remove.text=Remove
+menuitem.complete.text=Complete
+menuitem.increase.text=Increase
+menuitem.decrease.text=Decrease
+menuitem.favorite.text=Favorite
+menuitem.rewatch.text=Rewatch
+menuitem.drop.text=Drop
+
+##########################
+###      BUTTONS       ###
+##########################
+button.add.tooltip=Add an entry
+button.edit.tooltip=Edit selected entry
+button.remove.tooltip=Remove selected entry
+button.complete.tooltip=Complete selected entry
+button.increase.tooltip=Increase selected entry episode
+button.decrease.tooltip=Decrease selected entry episode
+button.rewatch.tooltip=Rewatch the selected entry 
+button.drop.tooltip=Drop the selected entry
+button.favorite.tooltip=Add selected entry to the favorite list 
+button.print.tooltip=Print all the entries to file
+button.clear.tooltip=Clear search bar
+
+button.info.apply.tooltip=Accept the changes
+button.info.cancel.tooltip=Discard the changes
+button.info.root.tooltip=Create the entry based off a folder
+
+button.info.file.text=...
+button.info.file.tooltip=Select root file
+button.info.folder.text=...
+button.info.folder.tooltip=Select root folder
+button.info.moveup.tooltip=Move the file up the list
+button.info.movedown.tooltip=Move the file down the list
+button.info.add.tooltip=Add a file to the list
+button.info.remove.tooltip=Remove file from the list
+button.info.addall.tooltip=Add a folder to the list
+
+##########################
+###     TEXT FIELDS    ###
+##########################
+textfield.search.prompt=Search
+textfield.search.tooltip=Search for an entry by name
+
+textfield.info.name.prompt=Name
+textfield.info.name.tooltip=The entry name
+
+textfield.info.episodeon.prompt=On
+textfield.info.episodeon.tooltip=What episode number you are on
+
+textfield.info.episodetotal.prompt=Total
+textfield.info.episodetotal.tooltip=The total episodes the entry has
+
+##########################
+###       LABELS       ###
+##########################
+label.waiting.text=Waiting for input
+label.series_watched.text=Series Watched
+label.series_rewatched.text=Series Rewatched
+label.series_watching.text=Series Watching
+label.series_rewatching.text=Series Rewatching
+label.series_total.text=Total Series
+label.episodes_watched.text=Episodes Watched
+label.episodes_rewatched.text=Episodes Rewatched
+label.episodes_watching.text=Episodes Watching
+label.episodes_rewatching.text=Episodes Rewatching
+label.episodes_total.text=Total Episodes
+label.movies_watched.text=Movies Watched
+label.movies_rewatched.text=Movies Rewatched
+label.movies_watching.text=Movies Watching
+label.movies_rewatching.text=Movies Rewatching
+label.movies_total.text=Total Movies
+label.books_read.text=Books Read
+label.books_reread.text=Books Reread
+label.books_reading.text=Books Reading
+label.books_rereading.text=Books Rereading
+label.books_total.text=Total Books
+label.chapters_read.text=Chapters Read
+label.chapters_reread.text=Chapters Reread
+label.chapters_reading.text=Chapters Reading
+label.chapters_rereading.text=Chapters Rereading
+label.chapters_total.text=Total Chapters
+
+label.info.name.text=Name:
+label.info.episode.text=Episode:
+label.info.rating.text=Rating:
+label.info.type.text=Type:
+
+label.info.rootfile.text=Root file:
+label.info.rootfiles.text=Files:
+
+label.description.text=Libraries used to make this application
+
+##########################
+###   TABLE COLUMNS    ###
+##########################
+tablecolumn.name.text=Name
+tablecolumn.episode.text=Episode / Chapter
+tablecolumn.type.text=Type
+tablecolumn.date.text=Date
+tablecolumn.rating.text=Rating
+
+##########################
+###     TREE ITEMS     ###
+##########################
+treeitem.categories.text=Categories
+treeitem.categories_default.text=Application
+treeitem.categories_user.text=User
+treeitem.favorites.text=Favorites
+treeitem.all.text=All
+treeitem.watching.text=Watching
+treeitem.finished.text=Finished
+treeitem.series.text=Series
+treeitem.books.text=Books
+treeitem.movies.text=Movies
+treeitem.originals.text=Originals
+treeitem.rewatches.text=Rewatches
+treeitem.fanservice.text=Fan Service
+treeitem.rated10.text=Rated 10
+treeitem.rated9.text=Rated 9
+treeitem.rated8.text=Rated 8
+treeitem.rated7.text=Rated 7
+treeitem.rated6.text=Rated 6
+treeitem.rated5.text=Rated 5
+treeitem.rated4.text=Rated 4
+treeitem.rated3.text=Rated 3
+treeitem.rated2.text=Rated 2
+treeitem.rated1.text=Rated 1
+treeitem.dropped.text=Dropped
+
+##########################
+###       WINDOWS      ###
+##########################
+window.update.name=Update
+window.update.add.name=Add  
+window.update.edit.name=Edit
+
+##########################
+###    RADIO BUTTONS   ###
+##########################
+radiobutton.info.series.text=Series
+radiobutton.info.series.tooltip=Is this entry a series
+
+radiobutton.info.movie.text=Movie
+radiobutton.info.movie.tooltip=Is this entry a movie
+
+radiobutton.info.book.text=Book
+radiobutton.info.book.tooltip=Is this entry a book
+
+##########################
+###        TABS        ###
+##########################
+tab.basicinformation.text=General
+tab.basicinformation.tooltip=The general entry information
+tab.advancedinformation.text=Episodes
+tab.advancedinformation.tooltip=The (optional) advanced entry settings
+
+##########################
+###     TEXT ITEMS     ###
+##########################
+textitem.incomplete.text=Incomplete
+textitem.series.text=Series
+textitem.movie.text=Movie
+textitem.book.text=Book
+textitem.rewatch.text=Rewatch
+textitem.normal.text=Entry
+textitem.entry_list.text=Series Freak Entry List
+textitem.name_col.text=Name
+textitem.episode_col.text=Episode / Chapter
+textitem.type_col.text=Type
+textitem.date_col.text=Date
+textitem.rating_col.text=Rating
+textitem.add_cat.text=Add Category
+textitem.edit_cat.text=Edit Category
+textitem.not_busy.text=Finished
+
+textitem.opening_file.text=Opening file: 
+textitem.saving_file.text=Saving to file: 
+textitem.saving_file_n.text=Saving to current file...
+
+textitem.loading_map.text=Loading map: 
+textitem.saving_map.text=Saving map: 
+
+textitem.loading_entry.text=Loading Entry: 
+textitem.saving_entry.text=Saving Entry: 
+
+textitem.loading_category.text=Loading Category: 
+textitem.saving_category.text=Saving Category: 
+
+textitem.libraries.text=Libraries 
+
+textitem.favorite.text=Favorite
+textitem.dropped.text=Dropped
+##########################
+###       ALERTS       ###
+##########################
+alert.new.title=New
+alert.new.header=Do you want to continue?
+alert.new.content=This will clear all entries, categories and custom properties.
+
+alert.new.title=New
+alert.new.header=Do you want to continue?
+alert.new.content=This will clear all entries, categories and custom properties.
+
+alert.corrupt.title=Corrupt File
+alert.corrupt.header=The file you are trying to load is corrupted.
+alert.corrupt.content=Please select another file to load
+
+alert.inaccessible_loading.title=Inaccessible File
+alert.inaccessible_loading.header=The file you are trying to load is inaccessible.
+alert.inaccessible_loading.content=Please move the file to an accessible directory.
+
+alert.unknown_io_loading.title=Unknown Error
+alert.unknown_io_loading.header=An unknown error occurred while trying to load the file.
+alert.unknown_io_loading.content=Please try the following:\
+\n\t1. Reboot the application\
+\n\t2. Move the file\
+\n\t3. Check application and file permissions\
+\n\nPlease see the log for more details.
+
+
+alert.inaccessible_saving.title=Inaccessible File
+alert.inaccessible_saving.header=The file you are trying to save to is inaccessible.
+alert.inaccessible_saving.content=Please save to an accessible directory.
+
+alert.unknown_io_saving.title=Unknown Error
+alert.unknown_io_saving.header=An unknown error occurred while trying to save to file.
+alert.unknown_io_saving.content=Please try the following:\
+\n\t1. Reboot the application\
+\n\t2. Save to a different directory\
+\n\t3. Check application and directory permissions\
+\n\nPlease see the log for more details.
+
+alert.not_loaded.title=No File Loaded
+alert.not_loaded.header=Cannot save when no file is loaded.
+alert.not_loaded.content=Please load a file first.
+
+alert.invalid_episodes_format.title=Invalid Format
+alert.invalid_episodes_format.header=Invalid format for episodes.
+alert.invalid_episodes_format.content=Episodes may only contain:\
+\n\t Numerical characters between 1 and 32767\
+\n\t The question mark character (?)
+
+alert.invalid_episode_format.title=Invalid Format
+alert.invalid_episode_format.header=Invalid format for episode.
+alert.invalid_episode_format.content=Episode may only contain:\
+\n\t Numerical characters between 0 and 32767/
+\n\t Or no characters which will be interpreted as 0.
+
+alert.episodes_too_small.title=Invalid Number
+alert.episodes_too_small.header=Invalid number for episodes.
+alert.episodes_too_small.content=Episodes may not be below 0;
+
+alert.episode_too_large.title=Invalid Number
+alert.episode_too_large.header=Invalid number for episode.
+alert.episode_too_large.content=Episode may not be above episodes.
+
+alert.episode_too_small.title=Invalid Number
+alert.episode_too_small.header=Invalid number for episode.
+alert.episode_too_small.content=Episode may not below 0.
+
+alert.entry_already_exists.title=Entry Already Exists
+alert.entry_already_exists.header=The entry already exists.
+alert.entry_already_exists.content=Please change the name or edit the entry instead.
+
+alert.no_name.title=No Name
+alert.no_name.header=The entry name cannot be empty.
+alert.no_name.content=Please specify a name for the entry.
+
+alert.no_rating.title=No Rating
+alert.no_rating.header=The entry must have a rating if finished.
+alert.no_rating.content=Please specify a rating other than incomplete.
+
+alert.no_files.title=No Files
+alert.no_files.header=This entry has no episode files.
+alert.no_files.content=Please link the episode files with entry to use this feature.
+
+alert.missing_files.title=Missing Files
+alert.missing_files.header=The episode files for this entry are missing.
+alert.missing_files.content=Please check that the files are correct.
+
+alert.unknown_reason.title=Failed to Open Files
+alert.unknown_reason.header=Failed to open the episode file.
+alert.unknown_reason.content=Please make sure the files are accessible.
+
+alert.no_entry.title=No Selection
+alert.no_entry.header=No entry is selected.
+alert.no_entry.content=Please select an entry to edit.
+
+alert.file_walking.title=Unknown File Failure
+alert.file_walking.header=Failed to process the files.
+alert.file_walking.content=Please make sure the files are accessible.
+
+alert.cannot_edit.title=Cannot Edit
+alert.cannot_edit.header=This entry cannot be edited.
+alert.cannot_edit.content=Please make sure the information you entered is correct.
+
+alert.remove.title=Remove Entry
+alert.remove.header=Do you want to remove the selected entry?
+alert.remove.content=This will delete the selected entry and all rewatches. 
+
+alert.cant_finish.title=Can't Complete
+alert.cant_finish.header=Could not complete the selected entry.
+alert.cant_finish.content=Please make sure the episode on is not 0.
+
+alert.cannot_rewatch.title=Entry is Rewatch
+alert.cannot_rewatch.header=Cannot rewatch a rewatch.
+alert.cannot_rewatch.content=Please rewatch the original.
+
+alert.cant_print.title=Can't Print
+alert.cant_print.header=Could not print the entries to file.
+alert.cant_print.content=Please make sure the file location is correct.
+
+alert.no_selection.title=No Selection
+alert.no_selection.header=You have not selected an entry.
+alert.no_selection.content=Please select an entry and try again.
+
+alert.category_name_exists.title=Already Exists
+alert.category_name_exists.header=This category already exists.
+alert.category_name_exists.content=Please change the name and try again.
+
+alert.category_name_empty.title=Empty Name
+alert.category_name_empty.header=The category name cannot be empty.
+alert.category_name_empty.content=Please add a name and try again.
+
+alert.category_remove.title=Delete Category
+alert.category_remove.header=Are you sure you want to delete this category?
+alert.category_remove.content=Once deleted you can't get it back.
+
+alert.cant_edit_cat.title=Can't Edit
+alert.cant_edit_cat.header=Cannot edit application category.
+alert.cant_edit_cat.content=You can only edit custom categories.
+
+alert.cant_remove_cat.title=Can't Delete
+alert.cant_remove_cat.header=Cannot delete application category.
+alert.cant_remove_cat.content=You can only delete custom categories.
+
+alert.complete.title=Complete
+alert.complete.header=Are you sure you want to complete this entry?
+alert.complete.content= 
+
+alert.rewatch.title=Rewatch
+alert.rewatch.header=Are you sure you want to rewatch this entry?
+alert.rewatch.content= 
+
+alert.favorite.title=Favorite
+alert.favorite.header=Are you sure you want to favorite/unfavorite this entry?
+alert.favorite.content= 
+
+alert.drop.title=Drop
+alert.drop.header=Are you sure you want to drop/resume this entry?
+alert.drop.content= 
+
+##########################
+###   CHOICE DIALOGS   ###
+##########################
+choicedialog.ratings.title=Rating
+choicedialog.ratings.header=Entry requires a rating to be completed.
+choicedialog.ratings.content=Rating: 
+
+##########################
+###    TEXT DIALOGS    ###
+##########################
+textdialog.category_add.title=Add Category
+textdialog.category_add.header=Please enter a category name.
+textdialog.category_add.content=Name: 
