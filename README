@@ -1,5 +1,7 @@
-#Series Freak
-Simple but powerful series manager
+<snippet>
+  <content><![CDATA[
+# ${1:Series Freak}
+Simple but powerful series manager.
 
 ## Installation
 Download the installer and follow the instructions.
@@ -12,10 +14,14 @@ Download the installer and follow the instructions.
 5. Submit a pull request :D
 
 ## History
-V1.0 - Initial release.
+V1.0 - First release.
 
 ## Credits
 Luke Melaia - Author
 
 ## License
 GNU General Public License V3
+
+]]></content>
+  <tabTrigger>readme</tabTrigger>
+</snippet>
