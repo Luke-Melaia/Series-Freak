@@ -1,7 +1,7 @@
 #Series Freak
 Simple but powerful series manager.
 
-##Features
+##Winning Features
 
 ###Categories
 **Have your entries sorted into categories as you add and edit them.**
@@ -30,7 +30,69 @@ using the category control buttons (three buttons located on top of the categori
 - The yellow circular arrow icon edits the selected category.
 - The red cross icon removes the selected category.
 
-## Installation
+###Auto Watch
+**Open the entries next "watchable" file right from the application**
+
+Series Freak allows you to set, what i call "episode files" for an entry.
+When set, you can double click an entry inside the table(middle-left)
+to open the next episode file.
+
+To set the episode files: when creating an entry, you have two tabs, the first,
+titled "General" is where you set the basic required information for the entry,
+the second, titled "Episodes" is where you set the episode files. Inside the tab,
+you have a text field titled "Root file", this is defaut folder/file to open if
+Series Freak fails to open the next episode file, or, if the entry doesn't
+contain any episode files. Next to the text field are two buttons with three dots
+on them, the first will set a file as the root file (this is onlyreally useful for
+movies and one episode series), the second will set a folder as the root file, when
+you set a folder, Series Freak automaticly walks the files and/or folders inside the
+root folder and adds any non-hidden files (not folders) to the episodes list (underneath
+the root folder text field). Series Freak will only walk the first set of folders inside
+the root folder, any nested folders (folders inside folders) will not be walked. For example:
+say you have a folder tree like this:
+
+- C:
+  - Videos
+    - Series
+      - Some Series Name
+        - Season one
+          - Episode 1
+          - Episode 2
+          - Episode 3
+          - Episode ...
+          - Episode n
+        - Season two
+          - Episode 1
+          - Episode 2
+          - Episode 3
+          - Episode ...
+          - Episode n
+        - Season three
+          - Episode 1
+          - Episode 2
+          - Episode 3
+          - Episode ...
+          - Episode n
+      - Another Series
+      - ...
+      - n
+    - Movies
+      - ...
+      - n
+
+If you set the folder `C:\Videos\Series\Some Series Name` as the root folder, then
+all the files inside "Season one", "Season two" and "Season three" will be added as
+episode files to the entry.
+
+Its best to play around with this feature a bit to get the feel for it.
+
+Now we get to the episode files part. Beneath the root folder text field is a list,
+inside this list is where all the episode files are shown. This list is orded by
+episode, that is the files inside the list should be orded `episode one, episode
+two, episode three` and so on. If the order of the list is inconsistent then the
+feature will fail to work.
+
+##Installation
 Download the installer from the releases page and follow the instructions.
 
 ## Contributing
