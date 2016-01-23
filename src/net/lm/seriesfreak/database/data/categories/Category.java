@@ -26,7 +26,7 @@ import net.lm.seriesfreak.ui.language.node.LTreeItem;
 public abstract class Category extends LTreeItem {
 
     private boolean ignoresDropped;
-
+    
     public Category(boolean ignoresDropped) {
         this.ignoresDropped = ignoresDropped;
     }

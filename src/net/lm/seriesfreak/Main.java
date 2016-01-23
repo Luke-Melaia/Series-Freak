@@ -30,7 +30,7 @@ public final class Main extends Application {
     }
 
     public static void main(String... args) {
-        int javaVersion = 0;
+        int javaVersion;
         String sJavaVersion = System.getProperty("java.version");
 
         javaVersion = Integer.parseInt(sJavaVersion.replace(".", "").replace("_", ""));
