@@ -13,15 +13,17 @@ otherwise incomprehensible mess at the back of my mind.
 After a while of using it, always fearing it would
 someday blow up - corrupting all my saved data (I was a
 **_Horrible_** programmer at the time... hopefully I'm not
-any more), I decided to make a better one. It didn't
-even get off the drawing board before I set off to make an even
-**better** one... I deleted all the source code for this one
-after a bug that just seamed to break _everything_. After
-calming down, regaining my sanity, taking a little break
-from computers, I sat down and got to work on, what I
-though would be the _final_ version/remake. This one I
-actually finished! It had most of the features this one
-has, it looked okay (until you saw this one). All in all,
+any more), I decided to make a better one. 
+
+It didn't even get off the drawing board before I set off to
+make an even **better** one... I deleted all the source code
+for this one after a bug that just seamed to break _everything_.
+After calming down, regaining my sanity, taking a little break
+from computers, I sat down and got to work on, what I though
+would be the _final_ version/remake.
+
+This one I actually finished! It had most of the features this
+one has, it looked okay (until you saw this one). All in all,
 it was wonderful. From the very beginning I had intentions
 to release it as open source, but unfortunately, I got a bit
 tried of working on it, so, in my eyes, the code looked horrible...
@@ -33,6 +35,7 @@ ran smoothly, the whole nine yards. Then I got bored... I had no other
 projects to lose my mind over, started running out of anime and series
 to watch, had a few more ideas I wanted to implement. I **wanted** to
 make another series manager, I wanted to release it, so I made this one.
+
 This one I really enjoyed making, the code just seamed to fit perfectly,
 it didn't give me too many headaches, it looked amazing (I think so at least).
 It was perfect. I gave it some rough tests (it passed them), got some friends to
