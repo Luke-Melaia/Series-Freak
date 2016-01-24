@@ -146,7 +146,7 @@ so a word of caution is advised.
 
 There are 2 ways to add files to the list:
 
-- The first, and easiest way would be to let the application
+The first, and easiest way would be to let the application
 add them automatically (yes you read correctly).
 
 Imagine you have a folder tree like this (you probably do):
@@ -207,8 +207,7 @@ A few things to note:
 - The application sorts the files alphanumerically.
 - You can move the files up and down in the list.
 
-
-- The second way would be to manually add files and folders to the list.
+The second way would be to manually add files and folders to the list.
 
 Take a look at figure 3 again, to the side of the episode files list,
 you can see 5 buttons. 
