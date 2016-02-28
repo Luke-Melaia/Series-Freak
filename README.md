@@ -1,52 +1,6 @@
 #Series Freak
 A simple, yet powerful series manager.
 
-##The Making of Series Freak
-
-I created this application... well actually I
-created an application similar to this one, only
-it had the bare minimum of features. All it could
-do was keep track of the anime I watched. It did its job,
-it saved me time typing up lists that I used to remember
-what episode I was on, gave some sense of order to an
-otherwise incomprehensible mess at the back of my mind.
-After a while of using it, always fearing it would
-someday blow up - corrupting all my saved data (I was a
-**_Horrible_** programmer at the time... hopefully I'm better
-now), I decided to make a better one. 
-
-It didn't even get off the drawing board before I set off to
-make an even **better** one... I deleted all the source code
-for this one after a bug that just seamed to break _everything_.
-After calming down, regaining my sanity, taking a little break
-from computers, I sat down and got to work on, what I though
-would be the _final_ version/remake.
-
-This one I actually finished! It had most of the features this
-one has, it looked okay (until you saw this one). All in all,
-it was wonderful. From the very beginning I had intentions
-to release it as open source, but unfortunately, I got a bit
-tried of working on it, so, in my eyes, the code looked horrible...
-I thought to myself "I can't release this... I'll never live it down".
-So I just gave the application to a few friends of mine, used it for
-a long time without any fear of losing data (I still made backups though).
-I finally had an amazing series manager, it did everything I wanted it to,
-ran smoothly, the whole nine yards. Then I got bored... I had no other
-projects to lose my mind over, started running out of anime and series
-to watch, had a few more ideas I wanted to implement. I **wanted** to
-make another series manager, I wanted to release it, so I made this one.
-
-This one I really enjoyed making, the code just seamed to fit perfectly,
-it didn't give me too many headaches, it looked amazing (I think so at least).
-It was perfect. I gave it some rough tests (it passed them), got some friends to
-test it, made sure it worked well. After all the preparation and testing,
-it was finally ready, after all that work... all was perfect. I released
-it onto github... obviously, I wrote this README, sat back and took a deep
-breath, and acknowledged my achievement.
-
-That is the story of my favourite project. Why not give it a try? Read
-through the rest of this README and see if you like it.
-
 ##Some Screenshots
 
 Figure 1: The main window.
