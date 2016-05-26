@@ -30,7 +30,6 @@ public final class Main extends Application {
     }
 
     public static void main(String... args) {
-        JOptionPane.showMessageDialog(null, "Class: " + resources.Resources.class.getCanonicalName());
         int javaVersion;
         String sJavaVersion = System.getProperty("java.version");
 
