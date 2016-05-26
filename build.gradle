@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'net.lm.seriesfreak.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.5'
+    compile 'com.google.guava:guava:19.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
+
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'net.lm.seriesfreak.Main'
+    )
+  }
+}
