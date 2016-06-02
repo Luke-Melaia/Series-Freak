@@ -163,7 +163,8 @@ class Table extends TableView<TableEntry> {
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
             onClick(event);
 
-            if (event.isSecondaryButtonDown()) {//XXX: onContextMenuRequested(event) doesn't work for some reason so...
+            if (event.isSecondaryButtonDown()) {
+                //onContextMenuRequested(event) doesn't work for some reason so...
                 this.addToCategory.getItems().clear();
                 this.removeFromCategory.getItems().clear();
 

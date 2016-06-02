@@ -3,27 +3,62 @@ apply plugin: 'application'
 
 sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+//We need this argument because of a bug in javafx
+//where menu bars and similar components lag
+//after a window resize.
 applicationDefaultJvmArgs = ["-Dprism.vsync=false"]
 mainClassName = 'net.lm.seriesfreak.Main'
+
+if (!project.hasProperty('mainClass')) {
+    ext.mainClass = mainClassName
+}
+
+//Copies the required library files into
+//the libs folder.
+task copyDependencies(type: Copy){
+    into "$buildDir/libs/libs"
+    from configurations.runtime
+}
+
+//Copies the licneses for the libraries
+task copyLibraryLicenses(type: Copy){
+    into "$buildDir/libs/legal"
+    from "$projectDir/licenses"
+    exclude 'LICENSE'
+    exclude 'LICENSE.txt'
+}
+
+//Copies the licenses for the project
+task copyProjectLicenses(type: Copy){
+    into "$buildDir/libs"
+    from "$projectDir/licenses/LICENSE.txt"
+}
+
+build.dependsOn(copyDependencies)
+build.dependsOn(copyLibraryLicenses)
+build.dependsOn(copyProjectLicenses)
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    //Logging framworks
     compile 'org.apache.logging.log4j:log4j-api:2.5'
     compile 'org.apache.logging.log4j:log4j-core:2.5'
+    //Google Guava
     compile 'com.google.guava:guava:19.0'
+    //Google Gson
     compile 'com.google.code.gson:gson:2.6.2'
     
     testCompile group: 'junit', name: 'junit', version: '4.10'
 }
 
 jar {
-  manifest {
-    attributes(
-      'Class-Path': configurations.compile.collect { it.getName() }.join(' '), 
+    manifest {
+        attributes(
+      'Class-Path': configurations.compile.collect { "libs/" + it.getName() }.join(' '), 
       'Main-Class': 'net.lm.seriesfreak.Main'
-    )
-  }
+        )
+    }
 }

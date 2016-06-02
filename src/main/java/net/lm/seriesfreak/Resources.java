@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package resources;
+package net.lm.seriesfreak;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

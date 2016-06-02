@@ -135,7 +135,7 @@ public final class MainWindow extends Window {
     @Override
     public void addComponents() {
         this.setScene(new Scene(stage, WIDTH, HEIGHT));
-        this.getScene().getStylesheets().add((this.getClass().getCanonicalName().replace(".", "/") + ".css"));
+        this.getScene().getStylesheets().add("css/MainWindow.css");
 
         final VBox outerLayout = new VBox(0);
         VBox.setVgrow(outerLayout, Priority.ALWAYS);

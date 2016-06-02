@@ -107,7 +107,7 @@ public class EntryDatabase implements IDatabase, ChangeListenerTemplate<EntryBas
 
                             entry.setName(entryDataMap.getKey());
                             if (!entries.add(entry)) {
-                                log.error("Failed to create entry: " + entryDataMap.getKey() + " - Already exists");
+                                log.error("Failed to create entry: " + entryDataMap.getKey() + " - already exists");
                             }
                         } catch (InstantiationException | IllegalAccessException ex) {
                             log.error("Failed to create entry: " + entryDataMap.getKey(), ex);

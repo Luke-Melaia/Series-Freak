@@ -25,7 +25,7 @@ import java.util.List;
 import javafx.scene.control.Alert;
 import net.lm.seriesfreak.Application;
 import net.lm.seriesfreak.ExitCode;
-import resources.Resources;
+import net.lm.seriesfreak.Resources;
 
 /**
  * 
@@ -71,7 +71,7 @@ public class LanguageLoader {
             for (int i = 0; i < langs.size(); i++) {
                 Language lang = new Language(langs.get(i).getAsString());
 
-                try (InputStream resIn = this.getClass().getResourceAsStream(resourcesPath + "/" + lang.getName() + ".lang")) {
+                try (InputStream resIn = this.getClass().getResourceAsStream(resourcesPath + "/" + lang.getName() + ".properties")) {
                     lang.load(resIn);
                 }
 

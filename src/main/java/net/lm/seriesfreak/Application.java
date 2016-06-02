@@ -19,6 +19,9 @@ package net.lm.seriesfreak;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import java.awt.Window;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
@@ -128,13 +131,17 @@ public final class Application {
         crash.setOnCloseRequest(event -> exit(ExitCode.UNKNOWN_FAILURE));
         crash.show();
 
-        for (Stage s : FXRobotHelper.getStages()) {
-            s.hide();
-        }
+        //I add the windows to a separate list
+        //and then close them from that list
+        //because a ConcurrentModificationException
+        //gets thrown otherwise.
+        List<Stage> stages = new ArrayList();
+        FXRobotHelper.getStages().forEach(stage -> stages.add(stage));
+        stages.forEach(stage -> stage.hide());
         
-        for(Window w : Window.getWindows()){
-            w.setVisible(false);
-        }
+        List<Window> windows = new ArrayList();
+        Arrays.asList(Window.getWindows()).forEach(window -> windows.add(window));
+        windows.forEach(window -> window.setVisible(false));
     }
 
     private void initLanguageRegistry() {
