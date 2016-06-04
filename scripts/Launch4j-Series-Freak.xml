@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>@jar-file@</jar>
+  <outfile>@output-file@</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>@icon-file@</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>@min-jre@</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+    <initialHeapSize>@initial-heap@</initialHeapSize>
+    <maxHeapSize>@max-heap@</maxHeapSize>
+    <opt>-Dprism.vsync=false</opt>
+  </jre>
+  <versionInfo>
+    <fileVersion>@file-version@</fileVersion>
+    <txtFileVersion>@txt-version@</txtFileVersion>
+    <fileDescription>Series Manager</fileDescription>
+    <copyright>Copyright (C) 2016 Luke Melaia</copyright>
+    <productVersion>@product-version@</productVersion>
+    <txtProductVersion>@txt-product-version@</txtProductVersion>
+    <productName>Series Freak</productName>
+    <companyName>Luke Melaia</companyName>
+    <internalName>Series-Freak</internalName>
+    <originalFilename>Series-Freak.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

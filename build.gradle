@@ -1,5 +1,35 @@
+
+import java.awt.Desktop
+
 apply plugin: 'java'
 apply plugin: 'application'
+
+//The true build directory
+def staticBuildDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak/build/libs"
+//The built jar file inside the build directory
+def jarFile = "$staticBuildDir/Series-Freak.jar" // @jar-file@
+//Where to create the exe
+def outputFile = "$staticBuildDir/Series-Freak.exe" // @output-file@
+//The true project directory
+def staticProjectDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak"
+//The location to the icon file
+def icon = "$staticProjectDir/icon.ico" // @icon-file@
+
+//Minimum jre version
+def minJre = "1.8.0_65" // @min-jre@
+//Initial heap size
+def initialHeap = "256" // @initial-heap@
+//Max heap size
+def maxHeap = "512" // @max-heap@
+
+//Exe file version
+def fileVersion = "1.0.0.0" // @file-version@
+//Exe textual file version
+def txtVersion = "1.0" // @txt-version@
+//Exe product version
+def productVersion = "1.0.0.0" // @product-version@
+//Exe textual product version
+def txtProductVersion = "1.0" // @txt-product-version@
 
 sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -34,6 +64,35 @@ task copyProjectLicenses(type: Copy){
     from "$projectDir/licenses/LICENSE.txt"
 }
 
+//Creates an exe with launch4j
+task createExe(){
+    String contents = new File("$projectDir/scripts/Launch4j-Series-Freak.xml").getText('UTF-8')
+    
+    contents = contents.replaceAll("@jar-file@", jarFile)
+    contents = contents.replaceAll("@output-file@", outputFile)
+    contents = contents.replaceAll("@icon-file@", icon)
+    
+    contents = contents.replaceAll("@min-jre@", minJre)
+    contents = contents.replaceAll("@initial-heap@", initialHeap)
+    contents = contents.replaceAll("@max-heap@", maxHeap)
+    
+    contents = contents.replaceAll("@file-version@", fileVersion)
+    contents = contents.replaceAll("@txt-version@", txtVersion)
+    contents = contents.replaceAll("@product-version@", productVersion)
+    contents = contents.replaceAll("@txt-product-version@", txtProductVersion)
+    
+    new File("$buildDir/libs/Launch4j.xml").write(contents, 'UTF-8')
+    
+    String contents1 = new File("$projectDir/scripts/launch4j.bat").getText('UTF-8')
+    
+    contents1 = contents1.replaceAll("@script@", "\"$staticBuildDir/Launch4j.xml\"")
+    
+    new File("$buildDir/libs/Launch4j.bat").write(contents1, 'UTF-8')
+    
+    java.awt.Desktop.desktop.open(new File("$buildDir/libs/Launch4j.bat"))
+}
+
+createExe.dependsOn(build)
 build.dependsOn(copyDependencies)
 build.dependsOn(copyLibraryLicenses)
 build.dependsOn(copyProjectLicenses)
@@ -57,8 +116,8 @@ dependencies {
 jar {
     manifest {
         attributes(
-      'Class-Path': configurations.compile.collect { "libs/" + it.getName() }.join(' '), 
-      'Main-Class': 'net.lm.seriesfreak.Main'
+            'Class-Path': configurations.compile.collect { "libs/" + it.getName() }.join(' '), 
+            'Main-Class': 'net.lm.seriesfreak.Main'
         )
     }
 }
