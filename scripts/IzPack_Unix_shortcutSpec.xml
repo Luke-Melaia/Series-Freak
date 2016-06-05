@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<shortcuts>
+    <skipIfNotSupported/>
+    <programGroup defaultName="Series Freak" location="applications"/>
+    <shortcut KdeUsername="root" applications="no" desktop="yes"
+        encoding="UTF-8" initialState="normal" name="Series Freak"
+        programGroup="no" startMenu="yes" startup="no"
+        target="$INSTALL_PATH/Series-Freak.jar" type="Application"/>
+    <shortcut KdeUsername="root" applications="no" desktop="yes"
+        encoding="UTF-8" initialState="normal"
+        name="Series Freak Windows" programGroup="no" startMenu="yes"
+        startup="no" target="$INSTALL_PATH/Series-Freak.exe" type="Application"/>
+</shortcuts>

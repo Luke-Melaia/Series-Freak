@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<installation version="1.0">
+    <info>
+        <appname>Series Freak</appname>
+        <appversion>@txt-version@</appversion>
+        <authors>
+            <author email="lukemelaia.github@gmail.com" name="Luke Melaia"/>
+        </authors>
+        <url>https://github.com/Luke-Melaia/Series-Freak/releases</url>
+        <uninstaller name="Uninstal.jar" write="yes"/>
+        <requiresjdk>no</requiresjdk>
+        <writeinstallationinformation>no</writeinstallationinformation>
+        <pack200/>
+    </info>
+    <guiprefs height="480" resizable="no" width="640">
+        <modifier key="useFlags" value="yes"/>
+        <modifier key="langDisplayType" value="default"/>
+    </guiprefs>
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+    <resources>
+        <res id="LicencePanel.licence" parse="yes" src="@project-dir@\licenses\Series Freak License.txt"/>
+        <res id="shortcutSpec.xml" src="@build-dir@\IzPack_shortcutSpec.xml"/>
+        <res id="Unix_shortcutSpec.xml" src="@build-dir@\IzPack_Unix_shortcutSpec.xml"/>
+    </resources>
+    <panels>
+        <panel classname="CheckedHelloPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="ShortcutPanel"/>
+        <panel classname="SimpleFinishPanel"/>
+    </panels>
+    <packs>
+        <pack name="Jar" preselected="yes" required="yes">
+            <description/>
+            <file override="update"
+                src="@build-dir@\Series-Freak.jar" targetdir="$INSTALL_PATH/"/>
+        </pack>
+        <pack name="Executable" preselected="yes" required="no">
+            <description>Window executable file (.exe)</description>
+            <file override="update"
+                src="@build-dir@\Series-Freak.exe" targetdir="$INSTALL_PATH/"/>
+        </pack>
+        <pack name="License" preselected="yes" required="yes">
+            <description/>
+            <file override="update"
+                src="@build-dir@\LICENSE.txt" targetdir="$INSTALL_PATH/"/>
+        </pack>
+        <pack name="Legal" preselected="yes" required="yes">
+            <description/>
+            <file override="update"
+                src="@build-dir@\legal" targetdir="$INSTALL_PATH/"/>
+        </pack>
+        <pack name="Libraries" preselected="yes" required="yes">
+            <description/>
+            <file override="update"
+                src="@build-dir@\libs" targetdir="$INSTALL_PATH/"/>
+        </pack>
+    </packs>
+    <native name="ShellLink.dll" type="izpack"/>
+    <native name="ShellLink_x64.dll" type="izpack"/>
+</installation>

@@ -5,13 +5,13 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 //The true build directory
-def staticBuildDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak/build/libs"
+def staticBuildDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak/build/libs" // @build-dir@
 //The built jar file inside the build directory
 def jarFile = "$staticBuildDir/Series-Freak.jar" // @jar-file@
 //Where to create the exe
 def outputFile = "$staticBuildDir/Series-Freak.exe" // @output-file@
 //The true project directory
-def staticProjectDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak"
+def staticProjectDir = "C:/Users/Melaia/Documents/NetBeansProjects/Series-Freak" // @project-dir@
 //The location to the icon file
 def icon = "$staticProjectDir/icon.ico" // @icon-file@
 
@@ -43,6 +43,10 @@ if (!project.hasProperty('mainClass')) {
     ext.mainClass = mainClassName
 }
 
+/*
+ * This was painful to write, but it was worth it. 
+ */
+
 //Copies the required library files into
 //the libs folder.
 task copyDependencies(type: Copy){
@@ -64,34 +68,124 @@ task copyProjectLicenses(type: Copy){
     from "$projectDir/licenses/LICENSE.txt"
 }
 
-//Creates an exe with launch4j
+//Creates an exe file with launch4j.
 task createExe(){
-    String contents = new File("$projectDir/scripts/Launch4j-Series-Freak.xml").getText('UTF-8')
+    doFirst{
+        //First copy the xml file that tells Launch4j
+        //What to do and edit its contents. 
+        String contents = new File("$projectDir/scripts/Launch4j-Series-Freak.xml").getText('UTF-8')
+        contents = contents.replaceAll("@jar-file@", jarFile)
+        contents = contents.replaceAll("@output-file@", outputFile)
+        contents = contents.replaceAll("@icon-file@", icon)
     
-    contents = contents.replaceAll("@jar-file@", jarFile)
-    contents = contents.replaceAll("@output-file@", outputFile)
-    contents = contents.replaceAll("@icon-file@", icon)
+        contents = contents.replaceAll("@min-jre@", minJre)
+        contents = contents.replaceAll("@initial-heap@", initialHeap)
+        contents = contents.replaceAll("@max-heap@", maxHeap)
     
-    contents = contents.replaceAll("@min-jre@", minJre)
-    contents = contents.replaceAll("@initial-heap@", initialHeap)
-    contents = contents.replaceAll("@max-heap@", maxHeap)
+        contents = contents.replaceAll("@file-version@", fileVersion)
+        contents = contents.replaceAll("@txt-version@", txtVersion)
+        contents = contents.replaceAll("@product-version@", productVersion)
+        contents = contents.replaceAll("@txt-product-version@", txtProductVersion)
+        new File("$buildDir/libs/Launch4j.xml").write(contents, 'UTF-8')
     
-    contents = contents.replaceAll("@file-version@", fileVersion)
-    contents = contents.replaceAll("@txt-version@", txtVersion)
-    contents = contents.replaceAll("@product-version@", productVersion)
-    contents = contents.replaceAll("@txt-product-version@", txtProductVersion)
-    
-    new File("$buildDir/libs/Launch4j.xml").write(contents, 'UTF-8')
-    
-    String contents1 = new File("$projectDir/scripts/launch4j.bat").getText('UTF-8')
-    
-    contents1 = contents1.replaceAll("@script@", "\"$staticBuildDir/Launch4j.xml\"")
-    
-    new File("$buildDir/libs/Launch4j.bat").write(contents1, 'UTF-8')
-    
-    java.awt.Desktop.desktop.open(new File("$buildDir/libs/Launch4j.bat"))
+        //Next we copy over the .bat file to run Launch4j.
+        String contents1 = new File("$projectDir/scripts/launch4j.bat").getText('UTF-8')
+        contents1 = contents1.replaceAll("@script@", "\"$staticBuildDir/Launch4j.xml\"")
+        new File("$buildDir/libs/Launch4j.bat").write(contents1, 'UTF-8')
+        
+        //Run the command after we copy it.
+        java.awt.Desktop.desktop.open(new File("$buildDir/libs/Launch4j.bat"))
+    }
+    doLast{
+        //Finally we delete the scripts to make the work space cleaner.
+        Thread.sleep(2000)//Give launch4j some time to run
+        new File("$buildDir/libs/Launch4j.bat").delete()
+        new File("$buildDir/libs/Launch4j.xml").delete()
+    }
 }
 
+//Creates an installer with IzPack
+task createInstaller(){
+    doFirst(){
+        //Copy over the shortcut files first.
+        new File("$buildDir/libs/IzPack_shortcutSpec.xml").write(
+            new File("$projectDir/scripts/IzPack_shortcutSpec.xml").getText("UTF-8"), "UTF-8"
+        )
+        
+        new File("$buildDir/libs/IzPack_UNIX_shortcutSpec.xml").write(
+            new File("$projectDir/scripts/IzPack_UNIX_shortcutSpec.xml").getText("UTF-8"), "UTF-8"
+        )
+        
+        //Copy over and edit the config file.
+        String izpack = new File("$projectDir/scripts/IzPack.xml").getText('UTF-8')
+        izpack = izpack.replaceAll("@txt-version@", txtVersion)
+        izpack = izpack.replaceAll("@project-dir@", staticProjectDir)
+        izpack = izpack.replaceAll("@build-dir@", staticBuildDir)
+        new File("$buildDir/libs/IzPack.xml").write(izpack, 'UTF-8')
+        
+        //Copy the runnable bat file.
+        String bat = new File("$projectDir/scripts/izPack.bat").getText('UTF-8')
+        bat = bat.replaceAll("@script@", "\"$staticBuildDir/IzPack.xml\"")
+        new File("$buildDir/libs/izPack.bat").write(bat, 'UTF-8')
+        
+        //Finally, we run the scripts.
+        java.awt.Desktop.desktop.open(new File("$buildDir/libs/izPack.bat"))
+    }
+    doLast{
+        Thread.sleep(15000)//Give IzPack some time to work
+        
+        //Delete the script files.
+        new File("$buildDir/libs/IzPack_shortcutSpec.xml").delete()
+        new File("$buildDir/libs/IzPack_UNIX_shortcutSpec.xml").delete()
+        new File("$buildDir/libs/IzPack.xml").delete()
+        new File("$buildDir/libs/izPack.bat").delete()
+    }
+}
+
+//Creates an exe from the IzPack installer.
+task createExeInstaller(){
+    doFirst(){
+        //Copy over and replace the launch4j IzPack config file.
+        String izpack = new File("$projectDir/scripts/Launch4j-IzPack.xml").getText('UTF-8')
+        izpack = izpack.replaceAll("@jar-file@", "$staticBuildDir/IzPack.jar")
+        izpack = izpack.replaceAll("@output-file@", "$staticBuildDir/Series Freak Installer.exe")
+        izpack = izpack.replaceAll("@icon-file@", icon)
+    
+        izpack = izpack.replaceAll("@min-jre@", minJre)
+    
+        izpack = izpack.replaceAll("@file-version@", fileVersion)
+        izpack = izpack.replaceAll("@txt-version@", txtVersion)
+        izpack = izpack.replaceAll("@product-version@", productVersion)
+        izpack = izpack.replaceAll("@txt-product-version@", txtProductVersion)
+        new File("$buildDir/libs/Launch4j-IzPack.xml").write(izpack, 'UTF-8')
+        
+        //Copy over the bat file.
+        String contents1 = new File("$projectDir/scripts/launch4j.bat").getText('UTF-8')
+        contents1 = contents1.replaceAll("@script@", "\"$staticBuildDir/Launch4j-IzPack.xml\"")
+        new File("$buildDir/libs/Launch4j.bat").write(contents1, 'UTF-8')
+        
+        Thread.sleep(5000)//Give a bit of resting time
+        
+        //Run the scripts.
+        java.awt.Desktop.desktop.open(new File("$buildDir/libs/launch4j.bat"))
+    }
+    doLast{
+        Thread.sleep(2000)
+        
+        new File("$buildDir/libs/Launch4j-IzPack.xml").delete()
+        new File("$buildDir/libs/Launch4j.bat").delete()
+    }
+}
+
+//Build the whole project with installers.
+task buildAll(type: Copy){
+    doFirst{
+    }
+}
+
+buildAll.dependsOn(createExeInstaller)
+createExeInstaller.dependsOn(createInstaller)
+createInstaller.dependsOn(createExe)
 createExe.dependsOn(build)
 build.dependsOn(copyDependencies)
 build.dependsOn(copyLibraryLicenses)
