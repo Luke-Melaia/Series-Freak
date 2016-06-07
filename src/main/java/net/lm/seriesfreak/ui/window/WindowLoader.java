@@ -16,25 +16,52 @@
  */
 package net.lm.seriesfreak.ui.window;
 
+import javafx.scene.Scene;
+
 /**
+ * Allows windows to lazily loaded. 
  * 
  * @author Luke Melaia
+ * @param T the window to load.
  */
 public class WindowLoader<T extends Window> {
 
+    /**
+     * The window.
+     */
     private final T win;
 
+    /**
+     * Default constructor.
+     * 
+     * @param win the window to load.
+     */
     public WindowLoader(T win) {
         this.win = win;
     }
 
+    /**
+     * Loads the window.
+     */
     private void load() {
         win.initProperties();
+        
+        if (win instanceof FxmlWindow){
+            FxmlWindow window = (FxmlWindow) win;
+            window.loadFXML();
+            window.setScene(new Scene(window.root, window.width, window.height));
+        }
+        
         win.initComponents();
         win.addComponents();
         win.setLoaded();
     }
 
+    /**
+     * Loads the window if not already loaded and returns the window.
+     * 
+     * @return the window.
+     */
     public synchronized T get() {
         if (!win.isLoaded()) {
             load();

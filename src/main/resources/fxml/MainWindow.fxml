@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.lm.seriesfreak.ui.controllers.MainWindowController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save as" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Documentation" />
+                  <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <HBox prefHeight="6.0" prefWidth="750.0">
+            <children>
+                <ToolBar minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="441.0" HBox.hgrow="ALWAYS">
+                    <items>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddPressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/plus.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#onEditPressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/edit.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDeletePressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/cross.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Separator prefHeight="30.0" prefWidth="18.0" />
+                        <Button fx:id="completeButton" mnemonicParsing="false" onAction="#onCompletePressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/tick_green.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="increaseButton" mnemonicParsing="false" onAction="#onIncreasePressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/up_pointer.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="decreaseButton" mnemonicParsing="false" onAction="#onDecreasePressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/down_pointer.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="favouriteButton" mnemonicParsing="false" onAction="#onFavouritePressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/star.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="13.0" />
+                        <Button fx:id="rewatchButton" mnemonicParsing="false" onAction="#onRewatchPressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/copy.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="dropButton" mnemonicParsing="false" onAction="#onDropPressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/trash_can.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="16.0" />
+                        <Button fx:id="printButton" mnemonicParsing="false" onAction="#onPrintPressed">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@../images/printer.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </items>
+                </ToolBar>
+                <ToolBar minWidth="189.0" prefHeight="43.0" prefWidth="189.0" HBox.hgrow="NEVER">
+                    <items>
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearchClearPressed" prefHeight="33.0" prefWidth="177.0">
+                     <graphic>
+                        <HBox prefHeight="25.0" prefWidth="129.0">
+                           <children>
+                                      <ImageView>
+                                          <Image url="@../images/cross.png" />
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                      </ImageView>
+                              <TextField fx:id="searchBar" onAction="#onSearch" prefHeight="25.0" prefWidth="176.0" promptText="Search">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </graphic>
+                        </Button>
+                    </items>
+                </ToolBar>
+            </children>
+        </HBox>
+      <VBox VBox.vgrow="ALWAYS">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TreeTableView fx:id="table" prefHeight="332.0" prefWidth="357.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TreeTableColumn prefWidth="148.21121215820312" text="Name" />
+                      <TreeTableColumn prefWidth="152.1689453125" text="Episode / Chapter" />
+                        <TreeTableColumn prefWidth="46.4151611328125" text="Type" />
+                        <TreeTableColumn prefWidth="167.39630126953125" text="Date" />
+                        <TreeTableColumn prefWidth="115.667724609375" text="Rating" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TreeTableView>
+                  <Separator orientation="VERTICAL" prefHeight="418.0" prefWidth="20.0" />
+                  <VBox prefHeight="332.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="categories" prefHeight="221.0" prefWidth="201.0" VBox.vgrow="ALWAYS" />
+                        <ToolBar maxHeight="5.0" prefHeight="7.0" prefWidth="200.0">
+                          <items>
+                            <Button fx:id="categoriesAddButton" mnemonicParsing="false" onAction="#onCategoryAddPressed" prefHeight="12.0" prefWidth="20.0">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="categoriesEditButton" mnemonicParsing="false" onAction="#onCategoryEditPressed">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="categoriesRemoveButton" mnemonicParsing="false" onAction="#onCategoryDeletePressed">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/cross.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                          </items>
+                        </ToolBar>
+                        <ScrollPane prefHeight="194.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="scrollpane" prefHeight="154.0" prefWidth="184.0" />
+                           </content>
+                        </ScrollPane>
+                        <ToolBar minWidth="201.0" prefHeight="30.0" prefWidth="201.0" VBox.vgrow="ALWAYS">
+                           <items>
+                              <ProgressBar fx:id="progressBar" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="187.0" progress="0.45" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </children>
+</VBox>

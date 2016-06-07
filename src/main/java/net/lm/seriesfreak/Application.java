@@ -32,10 +32,12 @@ import net.lm.seriesfreak.ui.alert.CrashAlert;
 import net.lm.seriesfreak.ui.language.LanguageLoader;
 import net.lm.seriesfreak.ui.language.LanguageRegistry;
 import net.lm.seriesfreak.ui.language.alert.LAlert;
+import net.lm.seriesfreak.ui.window.FxmlWindow;
 import net.lm.seriesfreak.ui.window.main.MainWindow;
 import net.lm.seriesfreak.ui.window.update.UpdateWindow;
 import net.lm.seriesfreak.ui.window.WindowLoader;
 import net.lm.seriesfreak.ui.window.loading.LoadingWindow;
+import net.lm.seriesfreak.ui.window.main.FxmlMainWindow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configurator;
@@ -59,7 +61,12 @@ public final class Application {
     private WindowLoader<UpdateWindow> updateWindowLoader;
 
     private WindowLoader<MainWindow> mainWindowLoader;
-
+    
+    /**
+     * The main window for the application.
+     */
+    private FxmlMainWindow mainWindow = new FxmlMainWindow();
+    
     public Application() {
         log.info("Application initialized");
     }
@@ -75,6 +82,8 @@ public final class Application {
 
     public void start() {
         log.info("Starting application");
+        FxmlWindow.loadWindow(mainWindow);
+        mainWindow.show();
         mainWindowLoader.get().setTitle("Series Freak");
         mainWindowLoader.get().show();
 

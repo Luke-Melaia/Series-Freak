@@ -15,7 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 package net.lm.seriesfreak.ui.language.node;
 
 import javafx.scene.control.MenuItem;

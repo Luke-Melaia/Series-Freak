@@ -96,7 +96,7 @@ public class LibrariesWindow extends Window {
             try {
                 Desktop.getDesktop().browse(new URI("https://www.github.com/google/gson"));
             } catch (IOException | URISyntaxException ex) {
-                
+
             }
         });
 
@@ -104,7 +104,7 @@ public class LibrariesWindow extends Window {
             try {
                 Desktop.getDesktop().browse(new URI("https://www.github.com/google/guava"));
             } catch (IOException | URISyntaxException ex) {
-                
+
             }
         });
 
@@ -112,7 +112,7 @@ public class LibrariesWindow extends Window {
             try {
                 Desktop.getDesktop().browse(new URI("http://logging.apache.org/log4j"));
             } catch (IOException | URISyntaxException ex) {
-                
+
             }
         });
 
@@ -120,7 +120,7 @@ public class LibrariesWindow extends Window {
             try {
                 Desktop.getDesktop().browse(new URI("http://www.davekoelle.com/alphanum.html"));
             } catch (IOException | URISyntaxException ex) {
-                
+
             }
         });
     }

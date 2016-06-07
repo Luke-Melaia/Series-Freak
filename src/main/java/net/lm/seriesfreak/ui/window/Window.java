@@ -27,6 +27,7 @@ public abstract class Window extends Stage {
     private boolean loaded = false;
 
     protected Window() {
+
         super();
     }
 
@@ -44,5 +45,22 @@ public abstract class Window extends Stage {
 
     public final boolean isLoaded() {
         return this.loaded;
+    }
+
+    /**
+     * Loads a window as thought a {@link WindowLoader } had.
+     *
+     * @param window the window to load.
+     * @throws IllegalStateException if the window is already loaded.
+     */
+    public static void loadWindow(Window window) {
+        if (window.isLoaded()) {
+            throw new IllegalStateException("Window: " + window.getClass().getName() + " has already been loaded.");
+        }
+
+        window.initProperties();
+        window.initComponents();
+        window.addComponents();
+        window.setLoaded();
     }
 }
