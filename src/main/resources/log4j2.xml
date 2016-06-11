@@ -2,7 +2,7 @@
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
 
     <Appenders>
-        <File name="FILE" fileName="logs/Series Freak - Latest.log" append="false">
+        <File name="FILE" fileName="logs/Series Freak.log" append="false">
             <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | (%F:%L) - %m%n"/>
         </File>
         <Console name="STDOUT" target="SYSTEM_OUT">

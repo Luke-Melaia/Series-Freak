@@ -130,29 +130,6 @@ public final class Application {
         System.exit(code.code());
     }
     
-    public static void crash(Throwable throwable) {
-        log.fatal("Application crashing due to exception", throwable);
-        if (throwable == null) {
-            exit(ExitCode.UNKNOWN_FAILURE);
-        }
-
-        Alert crash = new CrashAlert(throwable);
-        crash.setOnCloseRequest(event -> exit(ExitCode.UNKNOWN_FAILURE));
-        crash.show();
-
-        //I add the windows to a separate list
-        //and then close them from that list
-        //because a ConcurrentModificationException
-        //gets thrown otherwise.
-        List<Stage> stages = new ArrayList();
-        FXRobotHelper.getStages().forEach(stage -> stages.add(stage));
-        stages.forEach(stage -> stage.hide());
-        
-        List<Window> windows = new ArrayList();
-        Arrays.asList(Window.getWindows()).forEach(window -> windows.add(window));
-        windows.forEach(window -> window.setVisible(false));
-    }
-
     private void initLanguageRegistry() {
         String _default = "English";
         LanguageRegistry.getInstance().loadAll(new LanguageLoader("resources", "lang").getLanguages());
@@ -175,12 +152,7 @@ public final class Application {
     }
 
     private void setupExceptionHandler() {
-        Thread.UncaughtExceptionHandler handler = (Thread t, Throwable e) -> {
-            crash(e);
-        };
-
-        Thread.setDefaultUncaughtExceptionHandler(handler);
-        Thread.currentThread().setUncaughtExceptionHandler(handler);
+        Crash.setExceptionHandler();
     }
 
     private void initDatabase() {

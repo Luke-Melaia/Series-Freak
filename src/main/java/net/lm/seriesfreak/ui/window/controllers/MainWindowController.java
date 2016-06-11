@@ -14,13 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.lm.seriesfreak.ui.controllers;
+package net.lm.seriesfreak.ui.window.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import net.lm.seriesfreak.Crash;
 import net.lm.seriesfreak.ui.window.Controller;
 
 /**
@@ -45,7 +46,7 @@ public class MainWindowController extends Controller implements Initializable {
      */
     @FXML
     private void onAddPressed(ActionEvent event) {
-
+        
     }
 
     /**

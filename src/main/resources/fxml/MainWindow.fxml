@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.lm.seriesfreak.ui.controllers.MainWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.lm.seriesfreak.ui.window.controllers.MainWindowController">
     <children>
         <MenuBar>
             <menus>
@@ -130,7 +130,7 @@
                                     <Insets top="5.0" />
                                  </HBox.margin>
                                       </ImageView>
-                              <TextField fx:id="searchBar" onAction="#onSearch" prefHeight="25.0" prefWidth="176.0" promptText="Search">
+                              <TextField fx:id="searchBar" alignment="CENTER" onAction="#onSearch" prefHeight="25.0" prefWidth="176.0" promptText="Search">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>

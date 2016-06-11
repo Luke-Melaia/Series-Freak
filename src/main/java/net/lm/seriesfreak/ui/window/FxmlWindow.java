@@ -114,7 +114,7 @@ public abstract class FxmlWindow<C extends Controller> extends Window {
     /**
      * Thrown when an FXML window fails to load.
      */
-    static class WindowLoadException extends RuntimeException {
+    public static class WindowLoadException extends RuntimeException {
 
         public WindowLoadException(String title, Throwable cause) {
             super(title, cause);

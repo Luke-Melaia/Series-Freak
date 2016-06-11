@@ -221,6 +221,32 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     //ControlsFX
     compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.10'
+    //Apache IO
+    compile 'commons-io:commons-io:2.4'
+    
+    /*
+     * Dependency hell...
+     * 
+     * Gradle, fix!
+    */
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.6'
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.6'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jul', version: '2.6'
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-web', version: '2.6'
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-taglib', version: '2.6'
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-flume-ng', version: '2.6'
+   
+    compile group: 'org.apache.logging.log4j', name: 'log4j-nosql', version: '2.6'
+    
+    compile group: 'org.apache.logging.log4j', name: 'log4j-iostreams', version: '2.6'
+    
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
     
     testCompile group: 'junit', name: 'junit', version: '4.10'
 }

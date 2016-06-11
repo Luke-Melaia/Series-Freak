@@ -6,7 +6,7 @@
 
 package net.lm.seriesfreak.ui.window.main;
 
-import net.lm.seriesfreak.ui.controllers.MainWindowController;
+import net.lm.seriesfreak.ui.window.controllers.MainWindowController;
 import net.lm.seriesfreak.ui.window.FxmlWindow;
 
 /**
