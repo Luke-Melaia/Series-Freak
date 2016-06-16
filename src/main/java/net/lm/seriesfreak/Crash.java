@@ -15,7 +15,7 @@ import java.util.List;
 import javafx.stage.Stage;
 import net.lm.seriesfreak.ui.window.FxmlWindow;
 import net.lm.seriesfreak.ui.window.WindowLoader;
-import net.lm.seriesfreak.ui.window.impls.CrashWindow;
+import net.lm.seriesfreak.ui.window.crash.CrashWindow;
 import net.lm.seriesfreak.util.LoggingUtils;
 
 /**
@@ -81,7 +81,6 @@ public class Crash {
             throw new NullPointerException("info and exception cannot both be null");
         }
 
-        //FIXME: not localized...
         log.fatal("Series Freak has crashed");
         log.info("The information message is: "
                 + ((info != null) ? info : "None"));
@@ -92,6 +91,8 @@ public class Crash {
         } catch (IOException ex1) {
             log.error("Coundn't get error file.", ex1);
         }
+        
+        System.exit(-1);
     }
 
     /**

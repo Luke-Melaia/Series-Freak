@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.lm.seriesfreak.ui.window.impls;
+package net.lm.seriesfreak.ui.window.crash;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -11,7 +11,6 @@ import java.io.StringWriter;
 import net.lm.seriesfreak.Application;
 import net.lm.seriesfreak.ExitCode;
 import net.lm.seriesfreak.ui.window.FxmlWindow;
-import net.lm.seriesfreak.ui.window.controllers.CrashWindowController;
 
 /**
  * The window displayed to the user when the application crashes.

@@ -26,6 +26,7 @@ import net.lm.seriesfreak.database.data.entries.RewatchEntry;
 import net.lm.seriesfreak.database.data.entries.TableEntry;
 import net.lm.seriesfreak.ui.language.node.LTextItem;
 import net.lm.seriesfreak.ui.node.TextualProgressBar;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 
 /**
  * 

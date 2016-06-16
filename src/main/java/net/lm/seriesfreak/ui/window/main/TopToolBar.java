@@ -39,6 +39,7 @@ import net.lm.seriesfreak.ui.language.alert.LChoiceDialog;
 import net.lm.seriesfreak.ui.language.node.LButton;
 import net.lm.seriesfreak.ui.language.node.LTextItem;
 import net.lm.seriesfreak.ui.node.SearchBar;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 import net.lm.seriesfreak.util.RandomUtils;
 import net.lm.seriesfreak.util.RatingHelper;
 

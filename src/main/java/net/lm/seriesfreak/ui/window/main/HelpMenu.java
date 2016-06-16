@@ -21,6 +21,7 @@ import net.lm.seriesfreak.ui.language.node.LMenuItem;
 import net.lm.seriesfreak.ui.window.WindowLoader;
 import net.lm.seriesfreak.ui.window.about.AboutWindow;
 import net.lm.seriesfreak.ui.window.libraries.LibrariesWindow;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 
 /**
  *

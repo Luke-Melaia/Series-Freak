@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.lm.seriesfreak.ui.window.controllers;
+package net.lm.seriesfreak.ui.window.crash;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -83,6 +83,11 @@ public class CrashWindowController extends Controller implements Initializable {
      */
     public TextArea getErrorTextArea() {
         return errorTextArea;
+    }
+
+    @Override
+    public void onInit() {
+        
     }
 
 }

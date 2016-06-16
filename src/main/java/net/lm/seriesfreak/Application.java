@@ -63,9 +63,9 @@ public final class Application {
     private WindowLoader<MainWindow> mainWindowLoader;
     
     /**
-     * The main window for the application.
+     * The main window loader for the application.
      */
-    private FxmlMainWindow mainWindow = new FxmlMainWindow();
+    private WindowLoader<FxmlMainWindow> fxmlMainWindowLoader;
     
     public Application() {
         log.info("Application initialized");
@@ -82,8 +82,6 @@ public final class Application {
 
     public void start() {
         log.info("Starting application");
-        FxmlWindow.loadWindow(mainWindow);
-        mainWindow.show();
         mainWindowLoader.get().setTitle("Series Freak");
         mainWindowLoader.get().show();
 
@@ -163,6 +161,8 @@ public final class Application {
     private void initWindows() {
         this.updateWindowLoader = new WindowLoader<>(new UpdateWindow(database));
         this.mainWindowLoader = new WindowLoader<>(new MainWindow(updateWindowLoader, database));
+        this.fxmlMainWindowLoader  = new WindowLoader<>(new FxmlMainWindow(updateWindowLoader, database));
+        fxmlMainWindowLoader.get().show();
         LoadingWindow.start();
     }
 }

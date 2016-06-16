@@ -6,8 +6,12 @@
 
 package net.lm.seriesfreak.ui.window.main;
 
-import net.lm.seriesfreak.ui.window.controllers.MainWindowController;
+import net.lm.seriesfreak.database.EntryDatabase;
+import net.lm.seriesfreak.database.PreferencesDatabase;
+import net.lm.seriesfreak.database.implementation.DatabaseHandler;
 import net.lm.seriesfreak.ui.window.FxmlWindow;
+import net.lm.seriesfreak.ui.window.WindowLoader;
+import net.lm.seriesfreak.ui.window.update.UpdateWindow;
 
 /**
  * The main window for series freak.
@@ -17,10 +21,33 @@ import net.lm.seriesfreak.ui.window.FxmlWindow;
 public class FxmlMainWindow extends FxmlWindow<MainWindowController>{
 
     /**
+     * The window loader for the update window.
+     */
+    private WindowLoader<UpdateWindow> updateWindowLoader;
+    
+    /**
+     * The database handler.
+     */
+    private DatabaseHandler database;
+    
+    /**
+     * The database where the entries are stored.
+     */
+    private EntryDatabase entryDatabase;
+    
+    private PreferencesDatabase preferencesDatabase;
+    
+    private Categories categories;
+    
+    /**
      * Default constructor.
      */
-    public FxmlMainWindow() {
-        super("Series Freak", "MainWindow", 650, 500);//TODO: Get title from config file - maybe.
+    public FxmlMainWindow(WindowLoader<UpdateWindow> updateWindowLoader, DatabaseHandler database) {
+        super("Series Freak", "MainWindow", 650, 500);//TODO: Get title from config file.
+        this.updateWindowLoader = updateWindowLoader;
+        this.database = database;
+        this.entryDatabase = (EntryDatabase) database.getMap(EntryDatabase.class);
+        this.preferencesDatabase = (PreferencesDatabase) database.getMap(PreferencesDatabase.class);
     }
 
     /**
@@ -36,7 +63,7 @@ public class FxmlMainWindow extends FxmlWindow<MainWindowController>{
      */
     @Override
     public void initComponents() {
-
+        
     }
 
     /**
@@ -53,6 +80,31 @@ public class FxmlMainWindow extends FxmlWindow<MainWindowController>{
     @Override
     public void destroy() {
 
+    }
+
+    /**
+     * @return the updateWindowLoader
+     */
+    public WindowLoader<UpdateWindow> getUpdateWindowLoader() {
+        return updateWindowLoader;
+    }
+
+    /**
+     * @return the database
+     */
+    public DatabaseHandler getDatabase() {
+        return database;
+    }
+
+    /**
+     * @return the entryDatabase
+     */
+    public EntryDatabase getEntryDatabase() {
+        return entryDatabase;
+    }
+    
+    public PreferencesDatabase getPreferencesDatabase() {
+        return preferencesDatabase;
     }
 
 }

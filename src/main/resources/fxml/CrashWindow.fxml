@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.lm.seriesfreak.ui.window.controllers.CrashWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.lm.seriesfreak.ui.window.crash.CrashWindowController">
    <children>
       <HBox prefHeight="0.0" prefWidth="820.0">
          <children>
@@ -38,10 +38,10 @@
       </TextArea>
       <HBox minHeight="-Infinity" prefHeight="45.0" prefWidth="806.0" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClose" text="Close" />
-            <Region prefHeight="0.0" prefWidth="571.0" HBox.hgrow="ALWAYS" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onReboot" text="Reboot" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onReportRequest" text="Open Report" />
+            <Region prefHeight="0.0" prefWidth="571.0" HBox.hgrow="ALWAYS" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClose" text="Close" />
          </children>
          <padding>
             <Insets left="10.0" right="10.0" top="10.0" />

@@ -27,6 +27,7 @@ import net.lm.seriesfreak.database.data.entries.RewatchEntry;
 import net.lm.seriesfreak.database.data.entries.Type;
 import net.lm.seriesfreak.ui.language.node.LLabel;
 import net.lm.seriesfreak.ui.node.FormattedValueLabel;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 
 /**
  *

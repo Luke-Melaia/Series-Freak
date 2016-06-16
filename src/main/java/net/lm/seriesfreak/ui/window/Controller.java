@@ -22,22 +22,28 @@ import javafx.stage.Stage;
  * Base class for FXML controllers.
  *
  * @author Luke Melaia
+ * @param T the type of window for this controller.
  */
-public class Controller {
+public abstract class Controller<T extends Stage> {
 
     /**
      * The window using this controller.
      */
-    protected Stage window;
-    
+    protected T window;
+
     /**
      * Sets the {@link #window}.
-     * 
+     *
      * @param window
      * @return {@code this}
      */
-    public Controller setWindow(Stage window){
+    public Controller setWindow(T window) {
         this.window = window;
         return this;
     }
+
+    /**
+     * Called when the controller has been properly initialized.
+     */
+    public abstract void onInit();
 }

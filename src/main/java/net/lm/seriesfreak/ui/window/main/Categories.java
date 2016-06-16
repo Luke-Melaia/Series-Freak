@@ -46,6 +46,8 @@ import net.lm.seriesfreak.ui.language.node.LButton;
 import net.lm.seriesfreak.ui.language.node.LMenuItem;
 import net.lm.seriesfreak.ui.language.node.LTextItem;
 import net.lm.seriesfreak.ui.language.node.LTreeItem;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 import net.lm.seriesfreak.util.ChangeListener;
 
 /**

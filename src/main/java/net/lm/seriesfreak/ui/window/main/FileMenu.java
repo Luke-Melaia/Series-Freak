@@ -32,6 +32,7 @@ import net.lm.seriesfreak.database.implementation.InaccessibleFileException;
 import net.lm.seriesfreak.ui.language.alert.LAlert;
 import net.lm.seriesfreak.ui.language.node.LMenu;
 import net.lm.seriesfreak.ui.language.node.LMenuItem;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 
 /**
  *

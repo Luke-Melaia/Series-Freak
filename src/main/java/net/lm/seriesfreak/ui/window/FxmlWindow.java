@@ -89,6 +89,7 @@ public abstract class FxmlWindow<C extends Controller> extends Window {
         }
 
         this.controller = (C) ((Controller) loader.getController()).setWindow(this);
+        this.controller.onInit();
     }
 
     /**

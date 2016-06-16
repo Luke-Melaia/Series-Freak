@@ -18,6 +18,7 @@
 package net.lm.seriesfreak.ui.window.main;
 
 import net.lm.seriesfreak.ui.language.node.LMenu;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 
 /**
  *

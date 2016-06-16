@@ -39,6 +39,7 @@ import net.lm.seriesfreak.ui.language.node.LMenu;
 import net.lm.seriesfreak.ui.language.node.LMenuItem;
 import net.lm.seriesfreak.ui.language.node.LTableColumn;
 import net.lm.seriesfreak.ui.node.TextualProgressBarTableCell;
+import net.lm.seriesfreak.ui.window.main.MainWindow;
 import net.lm.seriesfreak.util.Comparators;
 import net.lm.seriesfreak.util.RatingHelper;
 
@@ -267,11 +268,9 @@ class Table extends TableView<TableEntry> {
         mainWindow.getPreferencesDatabase().addStateListener((PreferencesDatabase.State state) -> {
             switch (state) {
                 case SERIALIZING:
-
                     saveSortOrder();
                     break;
                 case DESERIALIZING:
-
                     loadSortOrder();
                     break;
             }

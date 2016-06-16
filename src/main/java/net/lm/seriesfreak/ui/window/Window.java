@@ -17,6 +17,7 @@
 package net.lm.seriesfreak.ui.window;
 
 import javafx.stage.Stage;
+import net.lm.seriesfreak.util.ImageHelper;
 
 /**
  *
@@ -27,8 +28,8 @@ public abstract class Window extends Stage {
     private boolean loaded = false;
 
     protected Window() {
-
         super();
+        this.getIcons().add(ImageHelper.getApplicationIcon());
     }
 
     public abstract void initProperties();

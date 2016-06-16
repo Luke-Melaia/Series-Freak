@@ -14,14 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.lm.seriesfreak.ui.window.controllers;
+package net.lm.seriesfreak.ui.window.main;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import net.lm.seriesfreak.Crash;
+import javafx.scene.layout.HBox;
 import net.lm.seriesfreak.ui.window.Controller;
 
 /**
@@ -29,16 +26,19 @@ import net.lm.seriesfreak.ui.window.Controller;
  *
  * @author Luke Melaia
  */
-public class MainWindowController extends Controller implements Initializable {
-
+public class MainWindowController extends Controller<FxmlMainWindow>{
+    
+    @FXML
+    private EntryTable table;
+    
     /**
-     * Initializes the controller class.
+     * {@inheritDoc }
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void onInit(){
+        this.table.init(window);
     }
-
+    
     /**
      * Opens the add window.
      *
@@ -56,7 +56,7 @@ public class MainWindowController extends Controller implements Initializable {
      */
     @FXML
     private void onEditPressed(ActionEvent event) {
-
+        
     }
 
     /**
@@ -66,73 +66,73 @@ public class MainWindowController extends Controller implements Initializable {
      */
     @FXML
     private void onDeletePressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Completes the selected entry
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onCompletePressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Increases the episode of the selected entry.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onIncreasePressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Decreases the episode of the selected entry.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onDecreasePressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Favourites the selected entry.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onFavouritePressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Adds a rewatch entry from the selected entry.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onRewatchPressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Drops the selected entry.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onDropPressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Clears the search bar.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onSearchClearPressed(ActionEvent event) {
@@ -141,18 +141,18 @@ public class MainWindowController extends Controller implements Initializable {
 
     /**
      * Prints the displayed entries to an HTML document.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onPrintPressed(ActionEvent event) {
-
+        
     }
 
     /**
      * Searches for an entry in the current category.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onSearch(ActionEvent event) {
@@ -161,8 +161,8 @@ public class MainWindowController extends Controller implements Initializable {
 
     /**
      * Adds a category to the list.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onCategoryAddPressed(ActionEvent event) {
@@ -171,8 +171,8 @@ public class MainWindowController extends Controller implements Initializable {
 
     /**
      * Edits the selected category.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onCategoryEditPressed(ActionEvent event) {
@@ -181,11 +181,21 @@ public class MainWindowController extends Controller implements Initializable {
 
     /**
      * Deletes the selected category.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void onCategoryDeletePressed(ActionEvent event) {
+
+    }
+
+    /**
+     * Called when a user wants to add/remove an entry to/from a category.
+     *
+     * @param event
+     */
+    @FXML
+    private void onCategorySelect(ActionEvent event) {
 
     }
 }
