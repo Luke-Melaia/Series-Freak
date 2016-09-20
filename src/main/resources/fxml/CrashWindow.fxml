@@ -31,7 +31,7 @@
             <Region prefHeight="17.0" prefWidth="107.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <TextArea fx:id="errorTextArea" prefHeight="510.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+      <TextArea fx:id="errorTextArea" editable="false" prefHeight="510.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets left="10.0" right="10.0" top="10.0" />
          </VBox.margin>

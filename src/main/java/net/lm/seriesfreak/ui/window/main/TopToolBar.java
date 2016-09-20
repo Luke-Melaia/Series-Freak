@@ -154,6 +154,7 @@ class TopToolBar extends ToolBar {
     }
 
     private final EventHandler<ActionEvent> addEvent = (ActionEvent event) -> {
+        //throw new RuntimeException("In add button event. TEST CRASH!!!");
         mainWindow.getUpdateWindow().get().add();
     };
 

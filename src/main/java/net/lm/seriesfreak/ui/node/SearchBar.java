@@ -16,13 +16,18 @@
  */
 package net.lm.seriesfreak.ui.node;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import net.lm.seriesfreak.ui.language.node.LTextField;
 import net.lm.seriesfreak.ui.language.node.LButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javax.swing.ImageIcon;
 import net.lm.seriesfreak.util.ChangeListener;
+import net.lm.seriesfreak.util.ImageHelper;
 
 /**
  *
@@ -30,18 +35,32 @@ import net.lm.seriesfreak.util.ChangeListener;
  */
 public class SearchBar extends HBox {
 
-    public final TextField textField = new LTextField().setPromptKey("search").setTooltipKey("search").register();
+    private final TextField textField = new LTextField().setPromptKey("search").setTooltipKey("search").register();
 
-    public final Button clearButton = new LButton().setImage("cross").setTooltipKey("clear").register();
+    private final Button searchButton = new LButton().setTooltipKey("clear").register();
 
+    private final ImageView clearImage = ImageHelper.getImage("cross");
+    
+    private final HBox buttonGraphic = new HBox(5);
+    
     private ChangeListener<String> changeListener;
 
     public SearchBar(ChangeListener<String> changeListener) {
         super(1);
-        this.textField.setMinWidth(160);
+        this.textField.setMinWidth(130);
+        this.textField.setMaxWidth(145);
         this.changeListener = changeListener;
 
-        this.clearButton.setOnAction(event -> {
+        this.buttonGraphic.getChildren().addAll(clearImage, textField);
+        HBox.setMargin(clearImage, new Insets(5, 0, 0, 0));
+        this.searchButton.setGraphic(buttonGraphic);
+        this.textField.setAlignment(Pos.CENTER);
+        
+        this.searchButton.setOnAction(event -> {
+            if(this.textField.isFocused()){
+                return;
+            }
+            
             this.textField.clear();
             this.changeListener.onChanged(this.textField.getText());
         });
@@ -50,16 +69,17 @@ public class SearchBar extends HBox {
             if (event.getCode() == KeyCode.ENTER) {
                 this.changeListener.onChanged(this.textField.getText());
             }
+            event.consume();
         });
 
         addItems();
     }
-
+    
     public String getText() {
         return this.textField.getText();
     }
 
     private void addItems() {
-        this.getChildren().addAll(clearButton, textField);
+        this.getChildren().addAll(searchButton);
     }
 }

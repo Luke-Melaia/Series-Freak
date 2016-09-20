@@ -66,4 +66,19 @@ public abstract class Category extends LTreeItem {
         super.register();
         return this;
     }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(obj == this) return true;
+        if(!(obj instanceof Category)) return false;
+        
+        Category cat = (Category) obj;
+        
+        return (cat.getValue().equals(this.getValue()));
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getValue().hashCode();
+    }
 }

@@ -62,7 +62,6 @@ class DatabaseLoader {
     }
 
     public DatabaseLoader(int fileVersion, boolean compress) {
-        this.compress = false;
         this.fileVersion = fileVersion;
         this.compress = compress;
         if (!compress) {

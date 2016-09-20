@@ -14,14 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.lm.seriesfreak.ui.window.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import javafx.geometry.Insets;
+import javafx.scene.chart.CategoryAxisBuilder;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -57,17 +58,15 @@ import net.lm.seriesfreak.util.ChangeListener;
 class Categories extends VBox implements ChangeListener<UserCategory[]> {
 
     private static Alert emptyName = new LAlert(Alert.AlertType.INFORMATION).setKey("category_name_empty").register();
-    
+
     private static Alert nameExists = new LAlert(Alert.AlertType.INFORMATION).setKey("category_name_exists").register();
-    
+
     private static Alert cantEdit = new LAlert(Alert.AlertType.INFORMATION).setKey("cant_edit_cat").register();
-    
+
     private static Alert cantRemove = new LAlert(Alert.AlertType.INFORMATION).setKey("cant_remove_cat").register();
-    
+
     private static Alert removeCat = new LAlert(Alert.AlertType.CONFIRMATION).setKey("category_remove").register();
-    
-    
-    
+
     private TreeView<String> categoriesView = new TreeView<>();
 
     private ToolBar toolBar = new ToolBar();
@@ -109,8 +108,8 @@ class Categories extends VBox implements ChangeListener<UserCategory[]> {
         this.userCategories.getChildren().addAll(Arrays.asList(paramater));
         this.categoriesView.refresh();
     }
-    
-    public boolean isValid(EntryBase entry){
+
+    public boolean isValid(EntryBase entry) {
         try {
             return ((Category) this.categoriesView.getSelectionModel().getSelectedItem()).isAllowed(entry);
         } catch (NullPointerException | ClassCastException e) {
@@ -118,43 +117,90 @@ class Categories extends VBox implements ChangeListener<UserCategory[]> {
             return this.all.isAllowed(entry);
         }
     }
-    
-    public UserCategory[] getAddable(EntryBase base){
-        if(base instanceof RewatchEntry){
-            base = ((RewatchEntry)base).getOriginalEntry();
+
+    public UserCategory[] getAddable(EntryBase base) {
+        if (base instanceof RewatchEntry) {
+            base = ((RewatchEntry) base).getOriginalEntry();
         }
-        
+
         List<UserCategory> list = new ArrayList<>();
-        
-        for(TreeItem<String> item : this.userCategories.getChildren()){
-            UserCategory category = (UserCategory)item;
-            
-            if(!category.containsEntry(base)){
+
+        for (TreeItem<String> item : this.userCategories.getChildren()) {
+            UserCategory category = (UserCategory) item;
+
+            if (!category.containsEntry(base)) {
                 list.add(category);
             }
         }
-        
+
         return list.toArray(new UserCategory[list.size()]);
     }
-    
-    public UserCategory[] getRamovable(EntryBase base){
-        if(base instanceof RewatchEntry){
-            base = ((RewatchEntry)base).getOriginalEntry();
+
+    //One day i should change this.
+    //Used by the BottomToolBar -> CategoryComponent
+    //to get the categories for an entry with a mapped
+    //boolean to indicate if the entry can either be
+    //added or removed.
+    public HashMap<String, Boolean> getEntryCategories(EntryBase entry) {
+
+        final HashMap<String, Boolean> categories1 = new HashMap<>();
+
+        for (UserCategory category : this.getRemovable(entry)) {
+            categories1.put(category.getValue(), false);
         }
-        
+
+        for (UserCategory category : this.getAddable(entry)) {
+            categories1.put(category.getValue(), true);
+        }
+
+        return categories1;
+    }
+
+    public UserCategory[] getCategories() {
         List<UserCategory> list = new ArrayList<>();
-        
-        for(TreeItem<String> item : this.userCategories.getChildren()){
-            UserCategory category = (UserCategory)item;
-            
-            if(category.containsEntry(base)){
+
+        for (TreeItem<String> item : this.userCategories.getChildren()) {
+            UserCategory category = (UserCategory) item;
+            list.add(category);
+        }
+
+        return list.toArray(new UserCategory[list.size()]);
+    }
+
+    public UserCategory[] getRemovable(EntryBase base) {
+        if (base instanceof RewatchEntry) {
+            base = ((RewatchEntry) base).getOriginalEntry();
+        }
+
+        List<UserCategory> list = new ArrayList<>();
+
+        for (TreeItem<String> item : this.userCategories.getChildren()) {
+            UserCategory category = (UserCategory) item;
+
+            if (category.containsEntry(base)) {
                 list.add(category);
             }
         }
-        
+
         return list.toArray(new UserCategory[list.size()]);
     }
+
+    public UserCategory getCatFromName(String name) {
+        for (TreeItem<String> item : this.userCategories.getChildren()) {
+            UserCategory category = (UserCategory) item;
+
+            if (category.getValue().equals(name)) {
+                return category;
+            }
+        }
+
+        return null;
+    }
     
+    public void fireAddCategoryAction(){
+        this.add.fire();
+    }
+
     private void init() {
         this.categoriesView.setRoot(categories);
 

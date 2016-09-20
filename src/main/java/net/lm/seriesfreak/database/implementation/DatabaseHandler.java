@@ -56,7 +56,8 @@ public class DatabaseHandler {
     private File currectFile;
 
     public DatabaseHandler(int fileVersion) {
-        this.loader = new DatabaseLoader(fileVersion, true);
+        this.loader = new DatabaseLoader(fileVersion, true);//BOOKMARK: Turn save file compression on or off.
+                                                            //Should be true for release
     }
 
     public void save(String filename) throws InaccessibleFileException, IOException {

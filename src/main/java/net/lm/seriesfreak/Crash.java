@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package net.lm.seriesfreak;
 
 import com.sun.glass.ui.Window;
@@ -13,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import net.lm.seriesfreak.ui.window.FxmlWindow;
 import net.lm.seriesfreak.ui.window.WindowLoader;
 import net.lm.seriesfreak.ui.window.crash.CrashWindow;
@@ -64,7 +64,7 @@ public class Crash {
      * @param ex the cause of the crash.
      */
     public static void crashWithWindow(String info, Throwable ex) {
-        crashWithoutWindow(info, ex);
+        crashWithoutWindow(info, ex, false);
         showCrashScreen(info, ex);
     }
 
@@ -74,7 +74,7 @@ public class Crash {
      * @param info the information message
      * @param ex the cause of the crash
      */
-    public static void crashWithoutWindow(String info, Throwable ex) {
+    public static void crashWithoutWindow(String info, Throwable ex, boolean exit) {
         //TODO: Close application.
         closeActiveWindows();
         if (info == null && ex == null) {
@@ -85,14 +85,16 @@ public class Crash {
         log.info("The information message is: "
                 + ((info != null) ? info : "None"));
         log.info("The cause is: ", ex);
-        
+
         try {
             log.info("The error file is: " + LoggingUtils.getErrorFile());
         } catch (IOException ex1) {
             log.error("Coundn't get error file.", ex1);
         }
-        
-        System.exit(-1);
+
+        if (exit) {
+            System.exit(-1);
+        }
     }
 
     /**
@@ -117,12 +119,12 @@ public class Crash {
      */
     private static void showWindow(String message, Throwable cause, File errorFile) {
         CrashWindow window;
-        
+
         try {
             window = crashWindowLoader.get();
         } catch (FxmlWindow.WindowLoadException ex) {
             log.fatal("Couldn't intialize crash window", ex);
-            crashWithoutWindow("Couldn't initialize crash window", ex);
+            crashWithoutWindow("Couldn't initialize crash window", ex, false);
             return;
         }
 
@@ -148,7 +150,7 @@ public class Crash {
         List<Stage> stages = new ArrayList<>();
         FXRobotHelper.getStages().forEach(stage -> stages.add(stage));
         stages.forEach(stage -> stage.close());
-        
+
         Window.getWindows().forEach(window -> window.setVisible(false));
     }
 }

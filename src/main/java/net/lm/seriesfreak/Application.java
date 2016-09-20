@@ -16,28 +16,19 @@
  */
 package net.lm.seriesfreak;
 
-import com.sun.javafx.robot.impl.FXRobotHelper;
-import java.awt.Window;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javafx.scene.control.Alert;
-import javafx.stage.Stage;
 import javax.swing.JFrame;
 import net.lm.seriesfreak.database.implementation.CorruptFileException;
 import net.lm.seriesfreak.database.implementation.DatabaseHandler;
 import net.lm.seriesfreak.database.implementation.InaccessibleFileException;
-import net.lm.seriesfreak.ui.alert.CrashAlert;
 import net.lm.seriesfreak.ui.language.LanguageLoader;
 import net.lm.seriesfreak.ui.language.LanguageRegistry;
 import net.lm.seriesfreak.ui.language.alert.LAlert;
-import net.lm.seriesfreak.ui.window.FxmlWindow;
 import net.lm.seriesfreak.ui.window.main.MainWindow;
 import net.lm.seriesfreak.ui.window.update.UpdateWindow;
 import net.lm.seriesfreak.ui.window.WindowLoader;
 import net.lm.seriesfreak.ui.window.loading.LoadingWindow;
-import net.lm.seriesfreak.ui.window.main.FxmlMainWindow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configurator;
@@ -61,11 +52,6 @@ public final class Application {
     private WindowLoader<UpdateWindow> updateWindowLoader;
 
     private WindowLoader<MainWindow> mainWindowLoader;
-    
-    /**
-     * The main window loader for the application.
-     */
-    private WindowLoader<FxmlMainWindow> fxmlMainWindowLoader;
     
     public Application() {
         log.info("Application initialized");
@@ -161,8 +147,6 @@ public final class Application {
     private void initWindows() {
         this.updateWindowLoader = new WindowLoader<>(new UpdateWindow(database));
         this.mainWindowLoader = new WindowLoader<>(new MainWindow(updateWindowLoader, database));
-        this.fxmlMainWindowLoader  = new WindowLoader<>(new FxmlMainWindow(updateWindowLoader, database));
-        fxmlMainWindowLoader.get().show();
         LoadingWindow.start();
     }
 }

@@ -64,10 +64,10 @@ public final class MainWindow extends Window {
     private StackPane stage;
 
     private MenuBar menuBar;
+    
+    private BottomToolBar bottomToolBar;
 
     private TopToolBar topToolBar;
-
-    private BottomToolBar bottomToolBar;
 
     private Table table;
 
@@ -84,7 +84,7 @@ public final class MainWindow extends Window {
     private CategoryDatabase categoryDatabase;
 
     private PreferencesDatabase preferencesDatabase;
-
+    
     public MainWindow(WindowLoader<UpdateWindow> updateWin, DatabaseHandler database) {
         super();
         log.trace("Initializing main window");
@@ -126,10 +126,10 @@ public final class MainWindow extends Window {
         stage = new StackPane();
         menuBar = new MenuBar(this);
         topToolBar = new TopToolBar(this);
-        bottomToolBar = new BottomToolBar(this);
         table = new Table(this);
         stats = new Statistics(this);
         categories = new Categories(this);
+        bottomToolBar = new BottomToolBar(this);
     }
 
     @Override
@@ -197,10 +197,6 @@ public final class MainWindow extends Window {
 
     protected TopToolBar getTopToolBar() {
         return topToolBar;
-    }
-
-    protected BottomToolBar getBottomToolBar() {
-        return bottomToolBar;
     }
 
     protected Table getTableImpl() {

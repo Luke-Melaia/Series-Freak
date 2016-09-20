@@ -39,7 +39,8 @@ import net.lm.seriesfreak.ui.language.node.LMenu;
 import net.lm.seriesfreak.ui.language.node.LMenuItem;
 import net.lm.seriesfreak.ui.language.node.LTableColumn;
 import net.lm.seriesfreak.ui.node.TextualProgressBarTableCell;
-import net.lm.seriesfreak.ui.window.main.MainWindow;
+import net.lm.seriesfreak.util.ChangeListener;
+import net.lm.seriesfreak.util.ChangeListenerList;
 import net.lm.seriesfreak.util.Comparators;
 import net.lm.seriesfreak.util.RatingHelper;
 
@@ -76,6 +77,8 @@ class Table extends TableView<TableEntry> {
 
     private LMenu removeFromCategory = new LMenu().setTextKey("category_remove").setImage("category_remove").register();
 
+    private final ChangeListenerList<EntryBase> listeners = new ChangeListenerList<>();
+    
     private MainWindow mainWindow;
 
     public Table(MainWindow mainWindow) {
@@ -175,11 +178,12 @@ class Table extends TableView<TableEntry> {
                     MenuItem item = new MenuItem(category.getValue());
                     item.setOnAction(event1 -> {
                         category.addEntry(selected);
+                        this.mainWindow.getEntryDatabase().forceUpdate();
                     });
                     addToCategory.getItems().add(item);
                 }
 
-                for (UserCategory category : this.mainWindow.getCategoriesImpl().getRamovable(selected)) {
+                for (UserCategory category : this.mainWindow.getCategoriesImpl().getRemovable(selected)) {
                     MenuItem item = new MenuItem(category.getValue());
                     item.setOnAction(event1 -> {
                         category.removeEntry(selected);
@@ -242,7 +246,7 @@ class Table extends TableView<TableEntry> {
             return;
         }
         mainWindow.getEntryDatabase().setSelected(this.getItems().get(select).getEntry());
-        this.mainWindow.getBottomToolBar().setEntry(this.getItems().get(select).getEntry());
+        notifyListeners(mainWindow.getEntryDatabase().getSelected());
     }
 
     private void register() {
@@ -331,6 +335,18 @@ class Table extends TableView<TableEntry> {
         }
     }
 
+    public void addNewSelectionListener(ChangeListener<EntryBase> listener) {
+        listeners.addListener(listener);
+    }
+
+    public void removeNewSelectionListener(ChangeListener<EntryBase> listener) {
+        listeners.removeListener(listener);
+    }
+
+    private void notifyListeners(EntryBase object) {
+        listeners.notifyListeners(object);
+    }
+    
     private void addItems() {
         this.getColumns().addAll(name, episode, type, date, rating);
     }

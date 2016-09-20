@@ -55,7 +55,7 @@ public final class Main extends Application {
             app.prepare();
             app.start();
         } catch (Exception e) {
-            Crash.crashWithoutWindow("Couldn't start application.", e);
+            Crash.crashWithoutWindow("Couldn't start application.", e, true);
         }
     }
 
